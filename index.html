@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Site institucional da empresa — descreva aqui o propósito do site em uma frase.">
-  <title>Nome da Empresa</title>
+  <title>Async Tecnologia</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="header">
     <div class="container header__inner">
-      <a class="logo" href="#inicio">Nome da Empresa</a>
+      <a class="logo" href="#inicio">
+        <img class="logo__img" src="./images/logo.svg" alt="Async Tecnologia" width="160" height="40" decoding="async">
+      </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
         <span class="nav-toggle__bar"></span>
         <span class="nav-toggle__bar"></span>
@@ -29,17 +31,30 @@
 
   <main id="inicio">
     <section class="hero">
-      <div class="container">
-        <h1 class="hero__title">Soluções que impulsionam o seu negócio</h1>
-        <p class="hero__subtitle">Texto curto explicando o valor da empresa. Substitua por sua proposta de valor.</p>
-        <a class="btn btn--primary" href="#contato">Fale conosco</a>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__title">Soluções que impulsionam o seu negócio</h1>
+          <p class="hero__subtitle">A Async Tecnologia é uma empresa brasileira de desenvolvimento de software focada em soluções de integração e automação de processos para negócios em crescimento. Fundada com o propósito de eliminar gargalos operacionais causados por sistemas legados e fluxos de trabalho manuais, a empresa atua principalmente nos segmentos de fintechs, e-commerce e startups B2B.</p>
+          <a class="btn btn--primary" href="#contato">Faça parte da Inovação</a>
+        </div>
+        <figure class="hero__figure">
+          <img class="hero__img" src="./images/hero.svg" alt="" width="560" height="320" decoding="async">
+        </figure>
       </div>
     </section>
 
     <section id="sobre" class="section">
-      <div class="container">
-        <h2 class="section__title">Sobre nós</h2>
-        <p class="section__text">Parágrafo institucional: história, missão ou diferencial. Use linguagem clara e objetiva.</p>
+      <div class="container sobre__inner">
+        <div class="sobre__copy">
+          <h2 class="section__title">Sobre nós</h2>
+          <p class="section__text">A Async Tecnologia é uma empresa brasileira de software especializada em integração de sistemas e automação de processos. Desenvolvemos soluções que conectam plataformas, APIs e ferramentas internas para que as operações da sua empresa funcionem de forma contínua e eficiente.
+            <br>Trabalhamos com empresas que precisam escalar sem aumentar a complexidade operacional. Nossa abordagem técnica é baseada em arquiteturas orientadas a eventos, o que garante sistemas resilientes, desacoplados e preparados para crescer.
+            <br>Nosso compromisso é entregar integrações confiáveis, no prazo e com suporte próximo do diagnóstico à implementação.
+            <br><br>Async Tecnologia integrações que funcionam.</p>
+        </div>
+        <figure class="sobre__figure">
+          <img class="sobre__img" src="./images/sobre.svg" alt="" width="480" height="360" decoding="async">
+        </figure>
       </div>
     </section>
 
@@ -48,16 +63,19 @@
         <h2 class="section__title">Serviços</h2>
         <ul class="cards">
           <li class="card">
-            <h3 class="card__title">Serviço 1</h3>
-            <p class="card__text">Breve descrição do que você oferece.</p>
+            <img class="card__img" src="./images/servico-integracao.svg" alt="" width="64" height="64" decoding="async">
+            <h3 class="card__title">Integração de sistemas</h3>
+            <p class="card__text">Conectamos ERPs, CRMs, gateways de pagamento e bases legadas com pipelines estáveis e monitoráveis.</p>
           </li>
           <li class="card">
-            <h3 class="card__title">Serviço 2</h3>
-            <p class="card__text">Outro item para demonstrar o layout em grade.</p>
+            <img class="card__img" src="./images/servico-automacao.svg" alt="" width="64" height="64" decoding="async">
+            <h3 class="card__title">Automação de processos</h3>
+            <p class="card__text">Eliminamos tarefas repetitivas com fluxos orientados a eventos e integrações em tempo quase real.</p>
           </li>
           <li class="card">
-            <h3 class="card__title">Serviço 3</h3>
-            <p class="card__text">Ajuste a quantidade de cards conforme necessário.</p>
+            <img class="card__img" src="./images/servico-apis.svg" alt="" width="64" height="64" decoding="async">
+            <h3 class="card__title">APIs e microsserviços</h3>
+            <p class="card__text">Desenhamos contratos de API, versionamento e camadas de integração prontas para escalar com o seu produto.</p>
           </li>
         </ul>
       </div>
@@ -66,14 +84,19 @@
     <section id="contato" class="section">
       <div class="container">
         <h2 class="section__title">Contato</h2>
-        <p class="section__text">E-mail, telefone ou endereço. Para formulário enviando dados, será preciso um backend ou serviço externo.</p>
+        <p class="section__text">Entre em contato com a nossa equipe e descubra como podemos conectar e otimizar os sistemas da sua empresa.
+          <br>E-mail: contato@asynctecnologia.com.br
+          <br>telefone: (11) 99999-9999
+          <br>Endereço: Av. Paulista, 1000 — São Paulo, SP
+          <br>Horário de atendimento:
+          <br>Segunda a sexta, das 9h às 18h</p>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <p class="footer__copy">&copy; <span id="ano"></span> Nome da Empresa. Todos os direitos reservados.</p>
+      <p class="footer__copy">&copy; <span id="ano"></span> Async Tecnologia. Todos os direitos reservados.</p>
     </div>
   </footer>
 
