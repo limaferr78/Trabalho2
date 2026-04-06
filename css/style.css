@@ -1,0 +1,259 @@
+/* Variáveis — ajuste cores e tipografia para a identidade da marca */
+:root {
+  --color-bg: #f8f9fb;
+  --color-surface: #ffffff;
+  --color-text: #1a1d23;
+  --color-muted: #5c6370;
+  --color-accent: #1e4d8c;
+  --color-accent-hover: #163a6b;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --radius: 8px;
+  --header-h: 64px;
+  --container: min(1120px, 100% - 2rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  width: var(--container);
+  margin-inline: auto;
+}
+
+/* Cabeçalho */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-surface);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--header-h);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: var(--color-accent);
+}
+
+.nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__list a {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.nav__list a:hover {
+  color: var(--color-accent);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav-toggle__bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 1px;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  .nav.is-open {
+    max-height: 280px;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    padding: 1rem 1rem 1.25rem;
+    gap: 0.75rem;
+  }
+}
+
+/* Hero */
+.hero {
+  padding: clamp(3rem, 8vw, 5rem) 0;
+  background: linear-gradient(135deg, #e8eef6 0%, var(--color-surface) 100%);
+  text-align: center;
+}
+
+.hero__title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.hero__subtitle {
+  margin: 0 auto 1.75rem;
+  max-width: 36rem;
+  color: var(--color-muted);
+  font-size: 1.0625rem;
+}
+
+/* Botões */
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.35rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--color-accent-hover);
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Seções */
+.section {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+.section--alt {
+  background: var(--color-surface);
+}
+
+.section__title {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.section__text {
+  margin: 0;
+  max-width: 42rem;
+  color: var(--color-muted);
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  padding: 1.5rem;
+  background: var(--color-bg);
+  border-radius: var(--radius);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.section--alt .card {
+  background: var(--color-bg);
+}
+
+.card__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+}
+
+.card__text {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+}
+
+/* Rodapé */
+.footer {
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  background: var(--color-surface);
+}
+
+.footer__copy {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  text-align: center;
+}
