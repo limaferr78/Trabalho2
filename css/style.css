@@ -37,6 +37,7 @@
   --liquid-shadow-soft:
     0 2px 16px rgba(0, 0, 0, 0.04),
     inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  --font-size-section-heading: clamp(1.375rem, 2.5vw, 1.75rem);
 }
 
 *,
@@ -94,7 +95,7 @@ a:hover {
   margin-inline: auto;
 }
 
-/* Cabeçalho — barra flutuante estilo macOS */
+/* Cabeçalho: barra flutuante estilo macOS */
 .header {
   position: sticky;
   top: 0;
@@ -240,52 +241,73 @@ a:hover {
   display: grid;
   gap: clamp(2rem, 5vw, 3rem);
   align-items: center;
+  min-width: 0;
 }
 
 @media (min-width: 900px) {
   .hero__inner {
     grid-template-columns: 1fr 1fr;
   }
-
-  .hero__content {
-    text-align: left;
-  }
-
-  .hero__subtitle {
-    margin-left: 0;
-    margin-right: 0;
-    max-width: none;
-  }
 }
 
 .hero__content {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  padding: clamp(1.5rem, 4vw, 2.25rem);
+  width: 100%;
+  min-width: 0;
+  padding: clamp(1.65rem, 4.2vw, 2.5rem) clamp(1.25rem, 3vw, 2rem);
   border-radius: var(--radius-xl);
   background: var(--liquid-fill);
   backdrop-filter: var(--liquid-blur);
   -webkit-backdrop-filter: var(--liquid-blur);
   border: var(--liquid-border);
   box-shadow: var(--liquid-shadow);
+  box-sizing: border-box;
+}
+
+/* Largura alinhada para textos abaixo do título */
+.hero__subtitle,
+.hero__tagline {
+  width: 100%;
+  max-width: 34rem;
+  min-width: 0;
 }
 
 .hero__title {
-  margin: 0 0 0.75rem;
-  font-size: clamp(1.75rem, 4.2vw, 2.75rem);
-  line-height: 1.07;
+  margin: 0 0 1rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  font-size: var(--font-size-section-heading);
+  line-height: 1.2;
   font-weight: 600;
-  letter-spacing: -0.028em;
+  letter-spacing: -0.022em;
   color: var(--text-primary);
+  text-align: center;
+  text-wrap: balance;
+  overflow-wrap: break-word;
 }
 
 .hero__subtitle {
-  margin: 0 auto 1.5rem;
-  max-width: 36rem;
+  margin: 0 0 0.6rem;
   color: var(--text-secondary);
   font-size: 1.0625rem;
-  line-height: 1.5;
+  line-height: 1.52;
   font-weight: 400;
   letter-spacing: -0.018em;
+}
+
+.hero__tagline {
+  margin: 0 0 1.35rem;
+  color: var(--text-tertiary);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  font-weight: 500;
+  letter-spacing: -0.012em;
 }
 
 .hero__figure {
@@ -301,7 +323,7 @@ a:hover {
   box-shadow: var(--liquid-shadow);
 }
 
-/* Botões — pill iOS */
+/* Botões estilo pill iOS */
 .btn {
   display: inline-block;
   padding: 0.72rem 1.5rem;
@@ -354,7 +376,7 @@ a:hover {
 
 .section__title {
   margin: 0 0 0.85rem;
-  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+  font-size: var(--font-size-section-heading);
   font-weight: 600;
   letter-spacing: -0.022em;
   color: var(--text-primary);
@@ -367,6 +389,79 @@ a:hover {
   font-size: 1.0625rem;
   line-height: 1.5;
   letter-spacing: -0.015em;
+}
+
+.section__text--emphasis {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(29, 29, 31, 0.08);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.section__intro {
+  margin: 0 0 1.35rem;
+  max-width: 40rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: -0.014em;
+}
+
+.sobre__copy .section__text + .section__text:not(.section__text--emphasis) {
+  margin-top: 1rem;
+}
+
+.sobre__copy .section__text + .section__text--emphasis {
+  margin-top: 1.35rem;
+}
+
+.contact-list {
+  margin: 1.25rem 0 0;
+  max-width: 42rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-list__row {
+  display: grid;
+  gap: 0.2rem 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(29, 29, 31, 0.06);
+}
+
+.contact-list__row:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+@media (min-width: 520px) {
+  .contact-list__row {
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    align-items: baseline;
+  }
+}
+
+.contact-list dt {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.contact-list dd {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+}
+
+.contact-list dd a {
+  color: var(--color-accent);
 }
 
 /* Sobre */
@@ -410,7 +505,7 @@ a:hover {
   margin-bottom: 1rem;
 }
 
-/* Cards — painéis de vidro */
+/* Cards: painéis de vidro */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
