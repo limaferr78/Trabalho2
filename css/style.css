@@ -246,7 +246,8 @@ a:hover {
 
 @media (min-width: 900px) {
   .hero__inner {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    gap: clamp(1.75rem, 4vw, 2.75rem);
   }
 }
 
@@ -312,15 +313,26 @@ a:hover {
 
 .hero__figure {
   margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero__img {
   width: 100%;
-  max-width: 560px;
+  max-width: min(100%, 720px);
+  height: auto;
   margin-inline: auto;
   border-radius: var(--radius-xl);
   border: var(--liquid-border-outer);
   box-shadow: var(--liquid-shadow);
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .hero__img {
+    max-width: min(100%, 640px);
+  }
 }
 
 /* Botões estilo pill iOS */
